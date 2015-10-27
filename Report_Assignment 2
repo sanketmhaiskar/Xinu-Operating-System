@@ -1,0 +1,26 @@
+Q : Does your program output any garbage? If yes, why?
+A : Yes, The program does output garbage values because two processes(produce and consume) are simultaneously trying to access the variable n and the print buffer. And because there is no synchronization both the processes concurrently try and write data to the print buffer which causes the garbage to be displayed to the screen.
+
+Q : Are all the produced values getting consumed? Check your program for a small count like 20.
+A : No , All the values produced are not getting consumed. Some values are missed due to lack of synchronization between the concurrent processes.
+
+Functions : 
+1) Producer()- Producer function produces a value and assigns it to the global variable n.It produces count values of n.
+
+2) Consumer()- Consumer function consumes i.e prints the current value of the global variable produced by the producer. It prints values of n for values of n less than or equal to count.
+
+3) Create()- Create() is a system function that creates a process , ready to execute but is temporarily in the suspended state . It returns an integer value which is the process id of the created process .
+It takes procedure address, stack size , priority , number of arguments and arguments as parameters.
+
+4) Resume()- Resume() function takes an integer argument i.e the process id of the process and puts in the ready queue by unsuspending it.
+
+5) Atoi()- For conversion of string to number. 
+
+6) Isdigit() - For validation of numerical input.
+
+
+Tasks Distribution :
+Producer.c  - Sanket
+Consumer.c - Narendar
+Prodcons shell command (xsh_prodcons.c) ,MakeFile and validations : Both worked together 
+

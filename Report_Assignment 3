@@ -1,0 +1,34 @@
+Q : How exactly is sychronization achieved using semaphore in our assignnment?
+A : Synchronization is achieved by using the wait() and signal() function calls which take a count as a parameter.In this case , we are using binary semaphores and hence passing 1 and 0 as arguments to produced and consumed semaphores . If the calling function calls wait , the value of the count for that semaphore is decremented by 1 . It checks if the count is non-negative and if it is non-negative, it does not block the calling function.If the value of the semaphore is negative , the calling process is pushed to the wait queue until the value again becomes non-negative , after which the calling process again is pushed to the ready queue and resumes execution where it last waited.
+
+Q : Can the above sychronization be achieved with just one semaphore? Why or why not?
+A : The above synchronization cannot be achieved with just one semaphore because producer and consumer are performing two different actions on the same shared variable and have different critical sections, i.e both are concurrent processes. Also if we try and use a single semaphore , there is no method of blocking a single process , while the other executes. In order to have concurrent execution, we need to isolate the code into a single function. Execution must be exclusive because the inteference might come from another process executing the same function at the same time.
+
+Functions : 
+1) Producer()- Producer function produces a value and assigns it to the global variable n.It produces count values of n.
+
+2) Consumer()- Consumer function consumes i.e prints the current value of the global variable produced by the producer. It prints values of n for values of n less than or equal to count.
+
+3) Create()- Create() is a system function that creates a process , ready to execute but is temporarily in the suspended state . It returns an integer value which is the process id of the created process .
+It takes procedure address, stack size , priority , number of arguments and arguments as parameters.
+
+4) Resume()- Resume() function takes an integer argument i.e the process id of the process and puts in the ready queue by unsuspending it.
+
+5) Wait() - Wait() function takes a semaphore id (sid32) as an argument , and decrements the count of the semaphore.If the count remains nonnegative, wait returns to the caller immediately. In essence, a process executing wait on a semaphore with a nonpositive count , it gives up the control to the processor and enqueues itself on the process list of the semaphore. 
+
+6) Signal() - Signal() function takes a semaphore id (sid32) as an argument , and increments the count of the semaphore.If the count becomes non-negative after the signal command it dequeues the next process on the semaphore list and makes it ready.I.e. Because it increments the count, signal examines the queue and removes a process from the queue if the queue is nonempty.
+
+7) semcreate() -semcreate() handles dynamic semaphore allocation.Semcreate takes an initial semaphore count as an argument, allocates a semaphore, assigns the semaphore the specified count, and returns the semaphore ID.
+
+8) semdelete() -semdelete() handles dynamic semaphore deallocation.Semdelete takes the ID of a semaphore as an argument and releases the semaphore table entry for subsequent use.
+
+9) Atoi()- For conversion of string to number. 
+
+10) Isdigit() - For validation of numerical input.
+
+Tasks : 
+Tasks Distribution :
+Producer.c and produced semaphore with semdelete()- Sanket
+Consumer.c and consumed semaphore with semdelete() - Narendar
+Prodcons shell command (xsh_prodcons.c),semcreate() , MakeFile and validations : Both worked together 
+
