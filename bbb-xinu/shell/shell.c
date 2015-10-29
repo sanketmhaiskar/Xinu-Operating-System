@@ -18,6 +18,7 @@ const	struct	cmdent	cmdtab[] = {
 	{"exit",	TRUE,	xsh_exit},
 	{"help",	FALSE,	xsh_help},
 	{"hello",	FALSE,	xsh_hello},
+	{"getfreeblocks",	FALSE,	xsh_getfreeblocks},
 	{"ipaddr",	FALSE,	xsh_ipaddr},
 	{"kill",	TRUE,	xsh_kill},
 	{"memdump",	FALSE,	xsh_memdump},

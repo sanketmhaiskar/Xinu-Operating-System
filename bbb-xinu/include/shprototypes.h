@@ -28,6 +28,9 @@ extern	shellcmd  xsh_ethstat	(int32, char *[]);
 /* in file xsh_exit.c */
 extern	shellcmd  xsh_exit	(int32, char *[]);
 
+/* in file xsh_getfreeblocks.c */
+extern	shellcmd  xsh_getfreeblocks	(int32, char *[]);
+
 /* in file xsh_hello.c */
 extern	shellcmd  xsh_hello	(int32, char *[]);
 
