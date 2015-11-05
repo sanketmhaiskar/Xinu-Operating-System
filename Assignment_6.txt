@@ -1,0 +1,44 @@
+Team Members : Sanket Mhaiskar & Narender Edunuri
+
+
+Created a shell command xsh_ass6 to demonstrate all the three problems.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Problem 1 :
+void ass6_problem1() :
+
+Traversed the free list using the memlist global variable . First displays the total free available memory and then traverses through the free blocks.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Problem 2 :
+void ass6_problem2()_getstk();
+void ass6_problem2()_getmem();
+mygetstk.c
+mygetmem.c
+kill.c
+
+
+PART 1:
+Wrote two separate memory functions in files mygetstk() and mygetmem() .
+For permanent allocation of memories , created a flag MEMFREE_FLAG to check if the freestk() and freemem() procedures needs to be called or not in kill.c . Used a shellcommand xsh_ass6 to setthis flag when calling mygetstk() and mygetmem() so that the memory is allocated permanently.
+
+PART 2:
+Did not use the roundmb feature and the exact match from the original getstk() and getmem().Added a print statement inside mygetmem(),mygetstk(),getmem() and getstk() to analyze the effects of roundmb functions in all the cases .
+
+Example :
+When 204 bytes was passed as a parameter to both getstk() and getmem() , the actual memory allocated was 208 bytes , as both the routines allocate bytes in the next multiple of 8 .
+Whereas when 204 bytes is passed as a parameter to both mygetstk() and mygetmem() , the custom routines allocate exactly 204 bytes of memory and do not round off to multiples of 8.
+This is because the structure used is memblk which has a size of 8 bytes.
+Thus there is a difference in the sizes of the memory allocated.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Problem 3 :
+void ass6_problem3();
+
+For getting the maximum memory ussed by a process , We wrote a sentinel value to all the blocks in the stack space allocated to the process.
+When the process runs , it will modify and use blocks of stack memory upto a certain point inside the stack space . We then wrote a routing inside kill.c to check how many blocks have been overwritten and then calculated and printed maximum memory used by that process .
+We created a demo process testfunction.c and are displaying the maximum memory used only by that process.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+

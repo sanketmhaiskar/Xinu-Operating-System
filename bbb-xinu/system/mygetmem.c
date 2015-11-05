@@ -20,18 +20,18 @@ char  	*mygetmem(
 	}
 
 	//nbytes = (uint32) roundmb(nbytes);	/* Not rounding of the size for assignment 6	*/
-
+	kprintf("\nSIZE allocated by mygetmem():%d",nbytes);
 	prev = &memlist;
 	curr = memlist.mnext;
 	while (curr != NULL) {			/* Search free list	*/
 
-		//if (curr->mlength == nbytes) {	/* Block is exact match	*/
-			/*prev->mnext = curr->mnext;
+		if (curr->mlength == nbytes) {	/* Block is exact match	*/
+			prev->mnext = curr->mnext;
 			memlist.mlength -= nbytes;
 			restore(mask);
 			return (char *)(curr);
 
-		} else */if (curr->mlength > nbytes) { /* Split big block	*/
+		} else if (curr->mlength > nbytes) { /* Split big block	*/
 			leftover = (struct memblk *)((uint32) curr +
 					nbytes);
 			prev->mnext = leftover;

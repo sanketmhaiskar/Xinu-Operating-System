@@ -1,7 +1,7 @@
 /* getstk.c - getstk */
 
 #include <xinu.h>
-
+#include <string.h>
 /*------------------------------------------------------------------------
  *  getstk  -  Allocate stack memory, returning highest word address
  *------------------------------------------------------------------------
@@ -21,7 +21,11 @@ char  	*getstk(
 	}
 
 	nbytes = (uint32) roundmb(nbytes);	/* Use mblock multiples	*/
-
+	struct procent *tptr=&proctab[getpid()];
+	if(strcmp(tptr->prname,"ass6")==0)
+	{
+	kprintf("\nSIZE allocated by getstk():%d\n",nbytes);
+	}
 	prev = &memlist;
 	curr = memlist.mnext;
 	fits = NULL;

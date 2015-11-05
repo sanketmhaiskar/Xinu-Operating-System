@@ -39,7 +39,7 @@ if(nargs!=2)
 	}
 	else
 	{
-		kprintf("Invalid Argument!!\n");
+		kprintf("Invalid Argument!! Arguments should be an option from 1-4.\n");
 		return 1;
 	}
   }
@@ -69,7 +69,8 @@ void ass6_problem2_getstk()
 {
 	MEMFREE_FLAG =TRUE;	
 	kprintf("\nProblem 2 : Stack Memory allocated!\n");
-	mygetstk(200);
+	mygetstk(204);
+	getstk(204);
 	return;
 }
 
@@ -77,14 +78,15 @@ void ass6_problem2_getmem()
 {
 	MEMFREE_FLAG = TRUE;	
 	kprintf("\nProblem 2 : Heap Memory allocated!\n");
-	mygetmem(200);
+	mygetmem(204);
+	getmem(204);
 	return;
 }
 
 
 void ass6_problem3()
 {
-	pid32 pid = mycreate(testfunction, 1024, 10,"testfunction",1,50);
+	pid32 pid = mycreate(testfunction, 1024, 10,"testfunction",1,5);
 	kprintf("\nProblem 3: Test Function for checking the maximum allocated memory \nTest Process created with pid : %d\n",pid);
 	resume(pid);
 	

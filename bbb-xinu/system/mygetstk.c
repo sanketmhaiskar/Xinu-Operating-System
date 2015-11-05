@@ -21,7 +21,7 @@ char  	*mygetstk(
 	}
 
 	//nbytes = (uint32) roundmb(nbytes);	/*  Not rounding of the size for assignment 6	*/
-
+	kprintf("\nSIZE allocated by mygetstk():%d\n",nbytes);
 	//prev = &memlist;
 	curr = memlist.mnext;
 	fits = NULL;
