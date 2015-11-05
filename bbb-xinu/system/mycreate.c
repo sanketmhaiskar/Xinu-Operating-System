@@ -30,7 +30,7 @@ pid32	mycreate(
 	mask = disable();
 	if (ssize < MINSTK)
 		ssize = MINSTK;
-	ssize = (uint32) roundew(ssize);
+	//ssize = (uint32) roundew(ssize);
 	if (((saddr = (uint32 *)mygetstk(ssize)) ==
 	    (uint32 *)SYSERR ) ||
 	    (pid=newpid()) == SYSERR || priority < 1 ) {
@@ -59,6 +59,18 @@ pid32	mycreate(
 	prptr->prdesc[2] = CONSOLE;	/* stderr is CONSOLE device	*/
 
 	/* Initialize stack as if the process was called		*/
+	uint32 *tempptr;
+	tempptr = (uint32 *)(prptr->prstkbase);
+	uint32 temp = prptr->prstklen;
+	uint32 *maxptr;
+	maxptr = (uint32 *)(prptr->prstkbase) - temp;
+	temp=0;
+	while(maxptr < tempptr)
+	{
+		*tempptr=(uint32)(-65534);
+		tempptr--;
+		temp++;
+	}
 
 	*saddr = STACKMAGIC;
 	savsp = (uint32)saddr;

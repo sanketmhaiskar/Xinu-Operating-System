@@ -10,10 +10,10 @@ void testfunction(int n)
 		//struct procent *prptr = &proctab[pid];
 		testfunction(n-1);
 	}
-	else
+	/*else
 	{
 	signal(var1);
 	wait(var2);
-	}
+	}*/
 //return getpid();
 }

@@ -4,6 +4,7 @@
 
 #include <xinu.h>
 #include <string.h>
+#include <ass6.h>
 
 extern	void	start(void);	/* Start of Xinu code			*/
 extern	void	*_end;		/* End of Xinu code			*/
@@ -39,13 +40,16 @@ pid32	currpid;		/* ID of currently executing process	*/
  * such as kprintf.
  *------------------------------------------------------------------------
  */
-
+bool MEMFREE_FLAG;
 void	nulluser()
 {	
 	struct	memblk	*memptr;	/* Ptr to memory block		*/
 	uint32	free_mem;		/* Total amount of free memory	*/
 	volatile uint32 *wspr = (volatile uint32 *) 0x44E35048;
 	volatile uint32 *wwps = (volatile uint32 *) 0x44E35034;
+
+	/*Assignment 6 flag */
+	MEMFREE_FLAG = FALSE ;
  
 	/* Initialize the system */
 	sysinit();

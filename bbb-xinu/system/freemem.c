@@ -1,7 +1,7 @@
 /* freemem.c - freemem */
 
 #include <xinu.h>
-
+#include <ass6.h>
 /*------------------------------------------------------------------------
  *  freemem  -  Free a memory block, returning the block to the free list
  *------------------------------------------------------------------------
@@ -10,7 +10,9 @@ syscall	freemem(
 	  char		*blkaddr,	/* Pointer to memory block	*/
 	  uint32	nbytes		/* Size of block in bytes	*/
 	)
-{
+{	
+	if(!MEMFREE_FLAG)
+	{
 	intmask	mask;			/* Saved interrupt mask		*/
 	struct	memblk	*next, *prev, *block;
 	uint32	top;
@@ -66,5 +68,7 @@ syscall	freemem(
 		block->mnext = next->mnext;
 	}
 	restore(mask);
+	}
 	return OK;
+	
 }

@@ -1,6 +1,7 @@
 /* kill.c - kill */
 
 #include <xinu.h>
+#include <ass6.h>
 
 /*------------------------------------------------------------------------
  *  kill  -  Kill a process and remove it from the system
@@ -29,8 +30,24 @@ syscall	kill(
 	for (i=0; i<3; i++) {
 		close(prptr->prdesc[i]);
 	}
-	freestk(prptr->prstkbase, prptr->prstklen);
-
+	if(strcmp(prptr->prname,"testfunction")==0)
+	{
+		uint32 *tempptr;
+		int temp=0;
+		tempptr = (uint32 *)(prptr->prstkbase);
+		while(*tempptr!=(uint32)(-65534))
+		{
+			tempptr--;		
+			temp++;
+		}
+		restore(mask);
+		mask = disable();
+		kprintf("\nMaximum Memory Used by process %d (in bytes ) : %d\n",pid,temp);
+	}
+	if(!MEMFREE_FLAG)
+	{
+		freestk(prptr->prstkbase, prptr->prstklen);
+	}
 	switch (prptr->prstate) {
 	case PR_CURR:
 		prptr->prstate = PR_FREE;	/* Suicide */
