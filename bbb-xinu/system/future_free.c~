@@ -17,7 +17,7 @@ syscall future_free(future** futureRef){
 	if(status == OK){
 		intmask mask;
 		mask = disable();
-		kprintf("Memory freed successfully\n");
+		//kprintf("Memory freed successfully\n");
 		*futureRef = NULL;
 		restore(mask);
 		return OK;

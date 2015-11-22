@@ -86,7 +86,7 @@ int handle_queue_set(future* futureRef,int* valueRef)
 			futureRef->state = FUTURE_VALID;
 
 		futureRef->pid = procID;
-		kprintf("set1: resuming consumer %d\n", procID);		
+		kprintf("set1: resuming consumer%d\n", procID);		
 		resume(procID);		
 
 		return OK;

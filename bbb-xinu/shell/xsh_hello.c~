@@ -1,6 +1,6 @@
 /* xsh_hello.c - xsh_hello */
 
-#include <xinu.h>
+//#include <xinu.h>
 #include <stdio.h>
 #include <string.h>
 /*------------------------------------------------------------------------

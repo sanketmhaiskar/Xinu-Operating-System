@@ -109,7 +109,7 @@ int handle_queue_get(future* futureRef,int** valueRef)
 		
 		if(isEmpty(futureRef->get_queue) == 0)
 			futureRef->state = FUTURE_WAITING;
-		else
+		else{
 			futureRef->state = FUTURE_EMPTY;
 		**valueRef = futureRef->value;			
 		//futureRef->pid = 0;
