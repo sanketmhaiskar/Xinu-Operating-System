@@ -1,31 +1,9 @@
-/* future_set.c - future_set */
-
 #include <future.h>
 
-syscall future_free(future** futureRef){
-
-	int status;
-	if(futureRef == NULL)
-	{
-		intmask mask;
-		mask = disable();
-		kprintf("Free Failed: Null passed\n");
-		restore(mask);
-		return -1;
-	}
-	status = freemem((struct future *)(*futureRef), sizeof(future));
-	if(status == OK){
-		intmask mask;
-		mask = disable();
-		kprintf("Memory freed successfully\n");
-		*futureRef = NULL;
-		restore(mask);
-		return OK;
-	}
-	// Error logging
-	intmask mask;
-	mask = disable();
-	kprintf("Free Failed: %d\n", status);
+syscall future_free(future* f)
+{
+	intmask mask = disable();	
+	int returnval=freemem(f,sizeof(future));
 	restore(mask);
-	return status;	
+	return returnval;
 }

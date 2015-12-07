@@ -1,47 +1,25 @@
 #include <future.h>
-sid32 mutex=0;
-uint32 future_prod(future *fut) {
+
+int TEST;
+uint future_prod(future *fut) {
+
   int i, j,status;
-
-  if(!fut){
-	intmask mask;
-	mask = disable();
-	kprintf("fprod : future is NULL\n");
-	restore(mask);
-	return SYSERR;
+  j = (int)fut;
+  for (i=0; i<1000; i++) {
+    j += i;
   }
-  
+//j=5;
+//j=TEST++;
 
-   if(fut->flag == FUTURE_QUEUE)
-   {
-   	  intmask mask;
-	  mask = disable();	
-	  j = 0;
-	  for (i=0; i<1000; i++) {
-	    j += i;
-	  }
-	  
-	  status = future_set(fut, &j);
-	  kprintf("currpid :%d produced: %d, future set = %d\n",currpid, j, fut->value);
-	  restore(mask);	 
-	  
-   }
-  else
-{
-	j = fut->value;
-	  for (i=0; i<1000; i++) {
-	    j += i;
-	  }
-	  
-	  status = future_set(fut, &j);
-}	 
-  if(status == SYSERR){
-	intmask mask;
-	mask = disable();
-	kprintf("fprod :future is either null or empty state or already in valid state\n");
-	restore(mask);
+status = future_set(fut, &j);
+intmask mask;
+mask=disable();
+if (status < 1) {
+    kprintf("future_set failed\n");
+    restore(mask);
+    return 1;
   }
+  restore(mask);
   return OK;
 }
-
 

@@ -1,11 +1,10 @@
-#include <future.h> 
-#include <stddef.h>
- #include <stdio.h>   
+
+#include <xinu.h>
 
 /*Global variable for producer consumer*/
 extern int n; /*this is just declaration*/
-extern sid32 produced, consumed;
+extern sid32 consumed, produced;   
 
 /*function Prototype*/
-void consumer(int count, sid32 consumed, sid32 produced);
-void producer(int count, sid32 consumed, sid32 produced);
+void consumer(int count);
+void producer(int count);

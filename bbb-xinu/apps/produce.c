@@ -1,19 +1,16 @@
 #include <prodcons.h>
 
- void producer(int count, sid32 consumed, sid32 produced)
+ void producer(int count)
  {
-      	//Code to produce values less than equal to count, 
-	int i;	
-	for(i = 1; i <= count; i++)
+      	int32 i;
+	
+	for( i=1 ; n<count ; i++ )
 	{
-		wait(consumed);
-		n = i;
-		printf("produced: %d \n",n);
+		wait(consumed);		
+		n=i;
+		printf("\nProduced  : %d", n);
 		signal(produced);
-	}
-
-	// Delete the consumed semaphore once the produced semaphore after completion.
+	}	
 	semdelete(produced);
  }
-
 

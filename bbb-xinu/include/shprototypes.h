@@ -81,3 +81,10 @@ extern	shellcmd  xsh_prodcons	(int32, char *[]);
 
 /* in file xsh_reset.c */
 extern	shellcmd  xsh_reset	(int32, char *[]);
+
+/* in file xsh_udptest.c */
+extern	shellcmd  xsh_udptest	(int32, char *[]);
+
+/* in file xsh_networkfutures.c */
+extern	shellcmd  xsh_networkfutures	(int32, char *[]);
+
