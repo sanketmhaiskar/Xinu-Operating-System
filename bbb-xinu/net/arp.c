@@ -52,7 +52,7 @@ status	arp_resolve (
 	mask = disable();
 
 	/*Delete all the stale entries in the ARP cache that has an age of more than 5 minutes*/
-	for (i=0; i<ARP_SIZ; i++) {
+	/*for (i=0; i<ARP_SIZ; i++) {
 		arptr = &arpcache[i];
 		if(((clktime-arptr->arp_age)>300) && arptr->arstate != AR_FREE)
 		{
@@ -60,7 +60,7 @@ status	arp_resolve (
 			arptr->arp_age = clktime;	
 			kprintf("\nARP cache Entry %d deleted.",i+1);
 		}
-	}
+	}*/
 	/* See if next hop address is already present in ARP cache */
 
 	for (i=0; i<ARP_SIZ; i++) {

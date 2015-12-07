@@ -1,2 +1,0 @@
-syscall lock(bool value);
-syscall future_set(future*, int*);

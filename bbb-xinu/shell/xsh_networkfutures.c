@@ -21,7 +21,7 @@ shellcmd xsh_networkfutures(int nargs, char *args[]) {
 	}
 	
 	future *f_exclusive;	
-	f_exclusive = future_alloc(FUTURE_QUEUE);
+	f_exclusive = future_alloc(FUTURE_EXCLUSIVE);
 
 	udp_init();
 	kprintf("\nUDP table initialized !!");
@@ -29,11 +29,8 @@ shellcmd xsh_networkfutures(int nargs, char *args[]) {
 	uint32 target_ip;
 	dot2ip("192.168.1.100",&target_ip);
 	slot=udp_register(target_ip,5555,5555);
-	kprintf("\nSlot obtained for consumer 1: %d",slot);
+	kprintf("\nSlot obtained for consumer : %d",slot);
 	resume( create(network_cons, 1024, 20, "fcons1", 3, f_exclusive,slot,args[1]) );
-	slot=udp_register(target_ip,5555,5556);
-	kprintf("\nSlot obtained for consumer 2: %d",slot);
-	resume( create(network_cons, 1024, 20, "fcons2", 3, f_exclusive,slot,args[1]) );
   	resume( create(network_prod, 1024, 20, "fprod1", 3, f_exclusive,slot) );
 		
 	return 0;
