@@ -87,4 +87,6 @@ extern	shellcmd  xsh_udptest	(int32, char *[]);
 
 /* in file xsh_networkfutures.c */
 extern	shellcmd  xsh_networkfutures	(int32, char *[]);
+extern	shellcmd  xsh_udpcs	(int32, char *[]);
+
 

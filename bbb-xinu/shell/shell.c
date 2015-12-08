@@ -33,6 +33,7 @@ const	struct	cmdent	cmdtab[] = {
 	{"prodcons",	FALSE,	xsh_prodcons},
 	{"reset",	FALSE,	xsh_reset},
 	{"udptest",	FALSE,  xsh_udptest},
+	{"udpcs",	FALSE,  xsh_udpcs},
 	{"networkfutures",	FALSE,  xsh_networkfutures}
 
 };
