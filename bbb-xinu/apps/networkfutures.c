@@ -19,6 +19,7 @@ uint network_cons(future *fut,int32 slot,char *str) {
   mask = disable();
   kprintf("\nLength of the String is : %d\n", i);
   restore(mask);
+  future_free(fut);
 return OK;
 }
 
@@ -44,6 +45,7 @@ uint network_prod(future *fut,int32 slot) {
   		if (status < 1) {
   			kprintf("\nFuture_set failed !!\n");
   			restore(mask);
+			future_free(fut);
     			return 1;
   		}
   		restore(mask);
