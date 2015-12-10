@@ -11,7 +11,7 @@
 shellcmd xsh_udpcs(int nargs, char *args[]) {
 
 	/* Output info for '--help' argument */
-	if (nargs <1 || nargs > 1) 
+	if (nargs <2 || nargs > 2) 
 	{
 		printf("Usage: udptest <REMOTE IP> <REMOTE PORT> <LOCAL PORT> <Message>");
 		printf("Description:\n");
