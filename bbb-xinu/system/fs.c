@@ -115,7 +115,7 @@ int fs_setmaskbit(int b) {
 }
 
 /* specify the block number to be read in the mask */
-int getmaskbit(int b) {
+int fs_getmaskbit(int b) {
   int mbyte, mbit;
   mbyte = b / 8;
   mbit = b % 8;
@@ -170,7 +170,7 @@ fs_print_fsd(void) {
 int get_next_free_block(){
     int i;
     for(i=0;i<fsd.nblocks;i++){
-        if(getmaskbit(i)==0){
+        if(fs_getmaskbit(i)==0){
             return i;
         }
     }

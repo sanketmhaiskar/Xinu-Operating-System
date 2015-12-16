@@ -114,7 +114,7 @@ Linker script and memory map
                 0x0000000081000de4                get_inode_by_num
                 0x0000000081000ea8                put_inode_by_num
                 0x0000000081000f90                fs_setmaskbit
-                0x0000000081000fd4                getmaskbit
+                0x0000000081000fd4                fs_getmaskbit
                 0x0000000081001010                fs_clearmaskbit
                 0x0000000081001054                fs_printfreemask
                 0x00000000810010fc                fs_print_fsd
