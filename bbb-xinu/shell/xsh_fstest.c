@@ -80,7 +80,7 @@ shellcmd xsh_fstest(int nargs, char *args[])
     restore(mask);
     //kprintf("\nRVAL:%d\n",rval);
    // buf2[rval] = EOF; // TODO: Write end of file symbol i.e. slash-zero instead of EOF. I can not do this because of WIKI editor limitation    
-
+     
     if(rval == 0)
     {
         kprintf("\n\r File read failed");
@@ -94,6 +94,7 @@ shellcmd xsh_fstest(int nargs, char *args[])
     {
         kprintf("\n\rReturn val for fclose : %d",rval);
     }
+
      //kprintf("\nAfter Close\n");
 clean_up:
     freemem(buf1,SIZE);

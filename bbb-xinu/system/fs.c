@@ -178,7 +178,7 @@ int get_next_free_block(){
     return -1;
 }
 
-int fopen(char *filename, int flags) 
+int fs_open(char *filename, int flags) 
 {   
     if(flags>=0 && flags<=2){
         struct directory dir=fsd.root_dir;
@@ -263,7 +263,7 @@ int fs_seek(int fd, int offset)
     
     offset=ft.fileptr+offset;
     if(offset<0){
-        fprintf(stderr,"fs::fs_seek: offset exceeds file boundary. resetting pointer to beginning of file\n\r");
+        kprintf("Offset exceeds file boundary.n\r");
         offset=0;
     }
     memcpy(&((oft+fd)->fileptr),&offset,sizeof(int));
@@ -276,7 +276,7 @@ int fs_read(int fd, void *buf, int nbytes)
     
     struct filetable ft=oft[fd];
     if(ft.state==FSTATE_CLOSED){
-        fprintf(stderr, "error %d. fs::fs_read(): invalid descriptor.\n\r",ft.state);
+        kprintf("Error Invalid descriptor.\n\r");
         return 0;
     }
     struct inode in = ft.in;
@@ -424,9 +424,6 @@ int fs_mkfs(int dev, int num_inodes) {
   bs_bwrite(dev0, BM_BLK, 0, fsd.freemask, fsd.freemaskbytes);
 
     
-  fs_setmaskbit(RT_BLK);
-  bs_bwrite(dev0, RT_BLK, 0, &(fsd.root_dir), sizeof(struct directory));
-
 
   return 1;
 }
