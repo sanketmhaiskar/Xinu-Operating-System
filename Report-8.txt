@@ -1,7 +1,7 @@
 Implemented File System functions like :
 1)Read - To Read from a file using bs_bread at a lower level.
 2)Write - to write to a file using bs_bwrite at a lower level.
-3)Seek - To return the 
+3)Seek - To set file pointer to a particular offset.
 4)Close - Changing the file state in the open file table.
 5)Open-  Opens the file if it has already been created.
 Also implemented modes for file permissions, by adding an extra field in the filetable struct.
