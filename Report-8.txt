@@ -4,7 +4,7 @@ Implemented File System functions like :
 3)Seek - To return the 
 4)Close - Changing the file state in the open file table.
 5)Open-  Opens the file if it has already been created.
-Also implemented modes for file permissions.
+Also implemented modes for file permissions, by adding an extra field in the filetable struct.
 
 All the work was done in collaboration.
 
