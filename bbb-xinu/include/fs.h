@@ -1,6 +1,5 @@
 #ifndef FS_H
 #define FS_H
-
 /* Modes of file*/ 
 #define O_CREAT 11 
 /* Flags of file*/ 
@@ -62,6 +61,9 @@ struct fsystem {
   struct directory root_dir;
 };
 
+
+
+
 /* file and directory functions */
 int fs_open(char *filename, int flags);
 int fs_close(int fd);
@@ -74,12 +76,6 @@ int fs_write(int fd, void *buf, int nbytes);
 int fs_mkfs(int dev, int num_inodes);
 int fs_mount(int dev);
 
-/* filesystem internal functions */
-int fs_get_inode_by_num(int dev, int inode_number, struct inode *in);
-int fs_put_inode_by_num(int dev, int inode_number, struct inode *in);
-int fs_setmaskbit(int b);
-int fs_clearmaskbit(int b);
-int fs_getmaskbit(int b);
 
 /*
   Block Store functions
@@ -93,6 +89,13 @@ int bs_bwrite(int bsdev, int block, int offset, void * buf, int len);
 /* debugging functions */
 void fs_printfreemask(void);
 void fs_print_fsd(void);
+
+/* filesystem internal functions */
+int fs_get_inode_by_num(int dev, int inode_number, struct inode *in);
+int fs_put_inode_by_num(int dev, int inode_number, struct inode *in);
+int fs_setmaskbit(int b);
+int fs_clearmaskbit(int b);
+int fs_getmaskbit(int b);
 
 void printrootdirectory();
 #endif /* FS_H */

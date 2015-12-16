@@ -39,7 +39,7 @@ shellcmd xsh_fstest(int nargs, char *args[])
                 args[0]);
         return SYSERR;
     }
-//#ifdef FS
+#ifdef FS
 
     bs_mkdev(0, MDEV_BLOCK_SIZE, MDEV_NUM_BLOCKS); /* device "0" and default blocksize (=0) and count */
     fs_mkfs(0,DEFAULT_NUM_INODES); /* bsdev 0*/
@@ -58,53 +58,51 @@ shellcmd xsh_fstest(int nargs, char *args[])
         j = j+33;
         buf1[i] = (char) j;
     }
-    //strcpy(buf1,"TEST .... JFHJFJDHJFHJDJFHJHJDHFJHFJHDJHFJHDJFJFHJFHFJHFJHJDHJFHJFHJDHJHFDJ...... TEST");
     
     rval = fs_write(fd,buf1,SIZE);
     if(rval == 0 || rval != SIZE )
     {
         kprintf("\n\r File write failed");
-        //goto clean_up;
+        goto clean_up;
     }
-    kprintf("\n\rWritten to file %s",buf1);
+    kprintf("\n\rWritten to file :%s\n",buf1);
     int mask;
     mask = disable();
-    kprintf("\nAfter Write\n");
+    //kprintf("\nAfter Write\n");
     // Now my file offset is pointing at EOF file, i need to bring it back to start of file
     // Assuming here implementation of fs_seek is like "original_offset = original_offset + input_offset_from_fs_seek"
     fs_seek(fd,-rval);
-    kprintf("\nAfter Seek\n"); 
+    //kprintf("\nAfter Seek\n"); 
     
     //read the file 
     rval = fs_read(fd, buf2, rval);
-    kprintf("\nAfter Read\n");
+    //kprintf("\nAfter Read\n");
     restore(mask);
     //kprintf("\nRVAL:%d\n",rval);
-    buf2[rval-1] = EOF; // TODO: Write end of file symbol i.e. slash-zero instead of EOF. I can not do this because of WIKI editor limitation    
+   // buf2[rval] = EOF; // TODO: Write end of file symbol i.e. slash-zero instead of EOF. I can not do this because of WIKI editor limitation    
 
     if(rval == 0)
     {
         kprintf("\n\r File read failed");
-        //goto clean_up;
+        goto clean_up;
     }
         
-    kprintf("\n\rContent of file %s",buf2);
+    kprintf("\n\rContent of file :%s\n",buf2);
     
     rval = fs_close(fd);
     if(rval != OK)
     {
         kprintf("\n\rReturn val for fclose : %d",rval);
     }
-     kprintf("\nAfter Close\n");
+     //kprintf("\nAfter Close\n");
 
-//clean_up:
-/*    freemem(buf1,SIZE);
-    freemem(buf2,SIZE);*/
+clean_up:
+    freemem(buf1,SIZE);
+    freemem(buf2,SIZE);
     
-//#else
-    //kprintf("No filesystem support\n");
-//#endif
-    //restore(mask);
+#else
+    kprintf("No filesystem support\n");
+#endif
     return 0;
 
 }
