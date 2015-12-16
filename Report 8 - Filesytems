@@ -1,0 +1,13 @@
+Implemented File System functions like :
+1)Read 
+2)Write
+3)Seek
+4)Close
+
+Also implemented modes for file permissions.
+
+All the work was done in collaboration.
+
+Team Members :
+Sanket Mhaiskar
+Narendar Edunuri

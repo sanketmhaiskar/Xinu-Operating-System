@@ -37,6 +37,7 @@ struct inode {
 struct filetable {
   int state;
   int fileptr;
+  int mode;
   struct dirent *de;
   struct inode in;
 };

@@ -95,7 +95,6 @@ shellcmd xsh_fstest(int nargs, char *args[])
         kprintf("\n\rReturn val for fclose : %d",rval);
     }
      //kprintf("\nAfter Close\n");
-
 clean_up:
     freemem(buf1,SIZE);
     freemem(buf2,SIZE);
