@@ -10,9 +10,9 @@ void	clkhandler()
 {
 
 	static uint32 count1000 = 1000;	/* variable to count 1000ms */
-	static uint32 reset_arp_count=0;
-	struct	arpentry  *arptr;
-	int32 i;	
+	//static uint32 reset_arp_count=0;
+	//struct	arpentry  *arptr;
+	//int32 i;	
 	volatile struct am335x_timer1ms *csrptr = 0x44E31000;
 					/* Pointer to timer CSR	    */
 
@@ -34,11 +34,11 @@ void	clkhandler()
 
 	if(count1000 == 0) {
 		clktime++;
-		reset_arp_count++;
+		//reset_arp_count++;
 		count1000 = 1000;
 	}
 	/*Reset arp counter and clear arp cache .Checks every 30 seconds if there is a stale entry.*/
-	if(reset_arp_count >=30)
+	/*if(reset_arp_count >=30)
 	{
 		reset_arp_count=0;
 		for (i=0; i<ARP_SIZ; i++) {
@@ -50,7 +50,7 @@ void	clkhandler()
 			kprintf("\nARP cache Entry %d deleted.\n",i+1);
 		}
 		}
-	}
+	}*/
 	/* check if sleep queue is empty */
 
 	if(!isempty(sleepq)) {

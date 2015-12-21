@@ -11,6 +11,19 @@ ascdate.o: ../system/ascdate.c ../include/xinu.h ../include/kernel.h \
  ../include/prototypes.h ../include/delay.h ../include/stdio.h \
  ../include/string.h ../include/am335x_control.h ../include/am335x_eth.h \
  ../include/armv7a.h
+bs.o: ../system/bs.c ../include/xinu.h ../include/kernel.h \
+ ../include/conf.h ../include/process.h ../include/queue.h \
+ ../include/resched.h ../include/semaphore.h ../include/memory.h \
+ ../include/bufpool.h ../include/clock.h ../include/mark.h \
+ ../include/ports.h ../include/uart.h ../include/tty.h \
+ ../include/device.h ../include/interrupt.h ../include/file.h \
+ ../include/rfilesys.h ../include/rdisksys.h ../include/lfilesys.h \
+ ../include/ether.h ../include/gpio.h ../include/net.h ../include/ip.h \
+ ../include/arp.h ../include/udp.h ../include/dhcp.h ../include/icmp.h \
+ ../include/tftp.h ../include/name.h ../include/shell.h ../include/date.h \
+ ../include/prototypes.h ../include/delay.h ../include/stdio.h \
+ ../include/string.h ../include/am335x_control.h ../include/am335x_eth.h \
+ ../include/armv7a.h ../include/stddef.h ../include/fs.h
 bufinit.o: ../system/bufinit.c ../include/xinu.h ../include/kernel.h \
  ../include/conf.h ../include/process.h ../include/queue.h \
  ../include/resched.h ../include/semaphore.h ../include/memory.h \
@@ -167,6 +180,19 @@ freemem.o: ../system/freemem.c ../include/xinu.h ../include/kernel.h \
  ../include/prototypes.h ../include/delay.h ../include/stdio.h \
  ../include/string.h ../include/am335x_control.h ../include/am335x_eth.h \
  ../include/armv7a.h
+fs.o: ../system/fs.c ../include/xinu.h ../include/kernel.h \
+ ../include/conf.h ../include/process.h ../include/queue.h \
+ ../include/resched.h ../include/semaphore.h ../include/memory.h \
+ ../include/bufpool.h ../include/clock.h ../include/mark.h \
+ ../include/ports.h ../include/uart.h ../include/tty.h \
+ ../include/device.h ../include/interrupt.h ../include/file.h \
+ ../include/rfilesys.h ../include/rdisksys.h ../include/lfilesys.h \
+ ../include/ether.h ../include/gpio.h ../include/net.h ../include/ip.h \
+ ../include/arp.h ../include/udp.h ../include/dhcp.h ../include/icmp.h \
+ ../include/tftp.h ../include/name.h ../include/shell.h ../include/date.h \
+ ../include/prototypes.h ../include/delay.h ../include/stdio.h \
+ ../include/string.h ../include/am335x_control.h ../include/am335x_eth.h \
+ ../include/armv7a.h ../include/fs.h
 future_alloc.o: ../system/future_alloc.c ../include/future.h \
  ../include/prodcons.h ../include/xinu.h ../include/kernel.h \
  ../include/conf.h ../include/process.h ../include/queue.h \
@@ -2293,6 +2319,19 @@ xsh_exit.o: ../shell/xsh_exit.c ../include/xinu.h ../include/kernel.h \
  ../include/resched.h ../include/semaphore.h ../include/memory.h \
  ../include/bufpool.h ../include/clock.h ../include/mark.h \
  ../include/ports.h ../include/uart.h ../include/tty.h \
+ ../include/device.h ../include/interrupt.h ../include/file.h \
+ ../include/rfilesys.h ../include/rdisksys.h ../include/lfilesys.h \
+ ../include/ether.h ../include/gpio.h ../include/net.h ../include/ip.h \
+ ../include/arp.h ../include/udp.h ../include/dhcp.h ../include/icmp.h \
+ ../include/tftp.h ../include/name.h ../include/shell.h ../include/date.h \
+ ../include/prototypes.h ../include/delay.h ../include/stdio.h \
+ ../include/string.h ../include/am335x_control.h ../include/am335x_eth.h \
+ ../include/armv7a.h
+xsh_fstest.o: ../shell/xsh_fstest.c ../include/fs.h ../include/xinu.h \
+ ../include/kernel.h ../include/conf.h ../include/process.h \
+ ../include/queue.h ../include/resched.h ../include/semaphore.h \
+ ../include/memory.h ../include/bufpool.h ../include/clock.h \
+ ../include/mark.h ../include/ports.h ../include/uart.h ../include/tty.h \
  ../include/device.h ../include/interrupt.h ../include/file.h \
  ../include/rfilesys.h ../include/rdisksys.h ../include/lfilesys.h \
  ../include/ether.h ../include/gpio.h ../include/net.h ../include/ip.h \

@@ -16,6 +16,7 @@ const	struct	cmdent	cmdtab[] = {
 	{"devdump",	FALSE,	xsh_devdump},
 	{"echo",	FALSE,	xsh_echo},
 	{"exit",	TRUE,	xsh_exit},
+	{"fstest",	FALSE,	xsh_fstest},
 	{"help",	FALSE,	xsh_help},
 	{"ipaddr",	FALSE,	xsh_ipaddr},
 	{"kill",	TRUE,	xsh_kill},
@@ -33,7 +34,6 @@ const	struct	cmdent	cmdtab[] = {
 	{"prodcons",	FALSE,	xsh_prodcons},
 	{"reset",	FALSE,	xsh_reset},
 	{"udptest",	FALSE,  xsh_udptest},
-	{"udpcs",	FALSE,  xsh_udpcs},
 	{"networkfutures",	FALSE,  xsh_networkfutures}
 
 };
