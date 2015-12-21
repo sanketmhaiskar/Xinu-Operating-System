@@ -1,5 +1,4 @@
 #include <prodcons.h>
-#include <stdbool.h>
 #include <myqueue.h>
 
 #ifndef _FUTURE_H_
@@ -44,4 +43,7 @@ syscall future_get(future*, int*);
 syscall future_set(future*, int*);
 uint future_prod(future*);
 uint future_cons(future*);
+
+uint network_cons(future*,int32,char []);
+uint network_prod(future*,int32);
 #endif /* _FUTURE_H_ */

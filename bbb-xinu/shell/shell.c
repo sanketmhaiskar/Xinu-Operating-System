@@ -17,22 +17,24 @@ const	struct	cmdent	cmdtab[] = {
 	{"echo",	FALSE,	xsh_echo},
 	{"exit",	TRUE,	xsh_exit},
 	{"help",	FALSE,	xsh_help},
-	{"hello",	FALSE,	xsh_hello},
-	{"getfreeblocks",	FALSE,	xsh_getfreeblocks},
 	{"ipaddr",	FALSE,	xsh_ipaddr},
 	{"kill",	TRUE,	xsh_kill},
 	{"memdump",	FALSE,	xsh_memdump},
 	{"memstat",	FALSE,	xsh_memstat},
 	{"ping",	FALSE,	xsh_ping},
-	{"prodcons",	FALSE,	xsh_prodcons},
 	{"ps",		FALSE,	xsh_ps},
-	{"reset",	FALSE,	xsh_reset},
 	{"sleep",	FALSE,	xsh_sleep},
 	{"udp",		FALSE,	xsh_udpdump},
 	{"udpecho",	FALSE,	xsh_udpecho},
 	{"udpeserver",	FALSE,	xsh_udpeserver},
 	{"uptime",	FALSE,	xsh_uptime},
-	{"?",		FALSE,	xsh_help}
+	{"?",		FALSE,	xsh_help},
+	{"hello",	FALSE,	xsh_hello},
+	{"prodcons",	FALSE,	xsh_prodcons},
+	{"reset",	FALSE,	xsh_reset},
+	{"udptest",	FALSE,  xsh_udptest},
+	{"udpcs",	FALSE,  xsh_udpcs},
+	{"networkfutures",	FALSE,  xsh_networkfutures}
 
 };
 

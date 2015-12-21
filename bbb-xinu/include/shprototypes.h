@@ -28,12 +28,6 @@ extern	shellcmd  xsh_ethstat	(int32, char *[]);
 /* in file xsh_exit.c */
 extern	shellcmd  xsh_exit	(int32, char *[]);
 
-/* in file xsh_getfreeblocks.c */
-extern	shellcmd  xsh_getfreeblocks	(int32, char *[]);
-
-/* in file xsh_hello.c */
-extern	shellcmd  xsh_hello	(int32, char *[]);
-
 /* in file xsh_help.c */
 extern	shellcmd  xsh_help	(int32, char *[]);
 
@@ -58,14 +52,8 @@ extern	shellcmd  xsh_nvram	(int32, char *[]);
 /* in file xsh_ping.c */
 extern	shellcmd  xsh_ping	(int32, char *[]);
 
-/* in file xsh_prodcons.c */
-extern	shellcmd  xsh_prodcons	(int32, char *[]);
-
 /* in file xsh_ps.c */
 extern	shellcmd  xsh_ps	(int32, char *[]);
-
-/*in file xsh_reset.c */
-extern	shellcmd  xsh_reset	(int32, char *[]);
 
 /* in file xsh_sleep.c */
 extern	shellcmd  xsh_sleep	(int32, char *[]);
@@ -84,3 +72,21 @@ extern	shellcmd  xsh_uptime	(int32, char *[]);
 
 /* in file xsh_help.c */
 extern	shellcmd  xsh_help	(int32, char *[]);
+
+/* in file xsh_hello.c */
+extern	shellcmd  xsh_hello	(int32, char *[]);
+
+/* in file xsh_prodcons.c */
+extern	shellcmd  xsh_prodcons	(int32, char *[]);
+
+/* in file xsh_reset.c */
+extern	shellcmd  xsh_reset	(int32, char *[]);
+
+/* in file xsh_udptest.c */
+extern	shellcmd  xsh_udptest	(int32, char *[]);
+
+/* in file xsh_networkfutures.c */
+extern	shellcmd  xsh_networkfutures	(int32, char *[]);
+extern	shellcmd  xsh_udpcs	(int32, char *[]);
+
+

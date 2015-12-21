@@ -1,0 +1,4 @@
+Implemented networkfutures using networkfutures.c in app. 
+Implemented a shell command called networkfutures that sends a message to the linux VM and gets the length of the string.
+Implemented a arp cache deletion routing inside clkhandler , which deletes the stale arp entries every 5 minutes.
+

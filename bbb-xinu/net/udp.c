@@ -332,9 +332,8 @@ status	udp_send (
 	struct	udpentry *udptr;	/* Pointer to table entry	*/
 
 	/* Ensure only one process can access the UDP table at a time	*/
-
+	
 	mask = disable();
-
 	/* Verify that the slot is valid */
 
 	if ( (slot < 0) || (slot >= UDP_SLOTS) ) {
